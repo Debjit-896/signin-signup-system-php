@@ -6,10 +6,10 @@ if (!isset($_SESSION['user'])) {
 }
 ?>
 
-<link rel="stylesheet" href="style.css">
+<div class="dashboard">
+    <h2>Welcome, <?php echo htmlspecialchars($_SESSION['user']); ?></h2>
 
-<h2>Welcome, <?php echo $_SESSION['user']; ?></h2>
-
-<a href="signout.php">
-    <button>Sign Out</button>
-</a>
+    <a href="signout.php">
+        <button>Sign Out</button>
+    </a>
+</div>

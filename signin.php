@@ -1,19 +1,6 @@
-<?php include "config.php"; ?>
+<?php include "config.php";
+$message = "";
 
-<link rel="stylesheet" href="style.css">
-
-<form method="POST">
-    <h2>Sign In</h2>
-
-    <input type="email" name="email" placeholder="Enter your email" required>
-    <input type="password" name="password" placeholder="Eneter Password" required>
-
-    <button name="signin">Sign In</button>
-
-    <p>New user? <a href="signup.php">Sign Up</a></p>
-</form>
-
-<?php
 if (isset($_POST['signin'])) {
 
     $email = $_POST['email'];
@@ -29,11 +16,25 @@ if (isset($_POST['signin'])) {
             header("Location: dashboard.php");
 
         } else {
-            echo "<p style='color:red'>Wrong Password!</p>";
+            $message = "<p class='error'>Wrong Password!</p>";
         }
 
     } else {
-        echo "<p style='color:red'>User not found!</p>";
+        $message = "<p class='error'>User not found!</p>";
     }
 }
 ?>
+
+<link rel="stylesheet" href="style.css">
+
+<form method="POST">
+    <h2>Sign In</h2>
+
+    <input type="email" name="email" placeholder="Enter your email" required>
+    <input type="password" name="password" placeholder="Eneter Password" required>
+
+    <button name="signin">Sign In</button>
+
+    <p>New user? <a href="signup.php">Sign Up</a></p>
+</form>
+
